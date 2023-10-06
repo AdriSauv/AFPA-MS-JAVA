@@ -23,7 +23,6 @@ public class Bibliobus {
         this.catalogue = new ArrayList<>();
     }
     
-    // Méthode pour ajouter un livre au catalogue
     public void ajoutLivre(String titre, String auteur, String editeur) {
         if (catalogue.size() < capaciteMax) {
             Livre nouveauLivre = new Livre(titre, auteur, editeur, 0, "Non spécifié");
@@ -33,5 +32,49 @@ public class Bibliobus {
         } else {
             System.out.println("Le bibliobus est plein. Impossible d'ajouter un nouveau livre.");
         }
+    }
+    
+    public void afficheCatalogue() {
+        System.out.println("Nom du bibliobus : " + nom);
+        System.out.println("Catalogue du bibliobus :");
+
+        for (Livre livre : catalogue) {
+            livre.afficherInformations();
+        }
+    }
+    
+    public String getTitre(int position) {
+        if (position >= 0 && position < catalogue.size()) {
+            return catalogue.get(position).getTitre();
+        }
+        return "Livre non trouvé dans le catalogue du bibliobus.";
+    }
+    
+    public String getAuteur(int position) {
+        if (position >= 0 && position < catalogue.size()) {
+            return catalogue.get(position).getAuteur();
+        }
+        return "Livre non trouvé dans le catalogue du bibliobus.";
+    }
+    
+    public String getEditeur(int position) {
+        if (position >= 0 && position < catalogue.size()) {
+            return catalogue.get(position).getEditeur();
+        }
+        return "Livre non trouvé dans le catalogue du bibliobus.";
+    }
+    
+    public String getGenre(int position) {
+        if (position >= 0 && position < catalogue.size()) {
+            return catalogue.get(position).getGenre();
+        }
+        return "Livre non trouvé dans le catalogue du bibliobus.";
+    }
+    
+    public int getNbExemplaires(int position) {
+        if (position >= 0 && position < catalogue.size()) {
+            return catalogue.get(position).getNombreExemplaires();
+        }
+        return 0; // Livre non trouvé ou non disponible
     }
 }

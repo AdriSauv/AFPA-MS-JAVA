@@ -2,6 +2,7 @@ package Livre;
 
 public class Livre {
     // Attributs
+	private int isbn;
     private String titre;
     private String auteur;
     private String editeur;
@@ -10,7 +11,7 @@ public class Livre {
 
     // Constructeur
     public Livre(String titre, String auteur, String editeur, int nombreExemplaires, String genre) {
-        this.titre = titre;
+    	this.titre = titre;
         this.auteur = auteur;
         this.editeur = editeur;
         this.nombreExemplaires = nombreExemplaires;
@@ -19,7 +20,7 @@ public class Livre {
     
     // Constructeur avec genre non specifié
     public Livre(String titre, String auteur, String editeur, int nombreExemplaires) {
-        this.titre = titre;
+    	this.titre = titre;
         this.auteur = auteur;
         this.editeur = editeur;
         this.nombreExemplaires = (nombreExemplaires >= 0) ? nombreExemplaires : 0;
@@ -65,5 +66,27 @@ public class Livre {
     public Livre nouvelEditeur(String nouveauEditeur) {
         return new Livre(this.titre, this.auteur, nouveauEditeur, this.nombreExemplaires, this.genre);
     }
+
+	public String getTitre() {
+		return titre;
+	}
+
+	public String getAuteur() {
+		return auteur;
+	}
+
+	public String getEditeur() {
+		return editeur;
+	}
+
+	public int getNombreExemplaires() {
+		return nombreExemplaires;
+	}
+
+	public String getGenre() {
+		return genre;
+	}
+    
+    
 }
 
