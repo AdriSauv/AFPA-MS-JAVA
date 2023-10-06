@@ -3,8 +3,8 @@ package Livre;
 public class DemoLivre {
 	public static void main(String[] args) {
         
-        Livre livre1 = new Livre("Titre 1", "Auteur 1", "Éditeur 1", 3, "Littérature française");
-        Livre livre2 = new Livre("Titre 2", "Auteur 2", "Éditeur 2", 2, "Policier");
+        Livre livre1 = new Livre("Harry Potter and the Goblet of Fire", "J.K Rowling", "A Levine", 3, "Fantasy");
+        Livre livre2 = new Livre("Bayard et le Crime d'Amboise", "Eric Fouassier", "Lizzie", 2, "Thriller");
 
         
         livre1.afficherInformations();
@@ -15,10 +15,10 @@ public class DemoLivre {
         System.out.println("Livre 2 présent : " + livre2.estPresent());
 
         
-        System.out.println("Livre 1 et Livre 2 représentent la même œuvre : " + livre1.verifierMemeOeuvre(livre2));
+        System.out.println("Livre 1 et Livre 2 représentent la même œuvre : " + livre1.memeOeuvre(livre2));
 
        
-        Livre livre3 = livre1.changerEditeur("Nouvel Éditeur");
+        Livre livre3 = livre1.nouvelEditeur("Nouvel Éditeur");
         livre3.afficherInformations();
     }
 }

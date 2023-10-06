@@ -55,18 +55,14 @@ public class Livre {
     }
 
     // Méthode pour vérifier si deux livres représentent la même œuvre
-    public void verifierMemeOeuvre(Livre autreLivre) {
-        if (this.titre.equals(autreLivre.titre) &&
-            this.auteur.equals(autreLivre.auteur) &&
-            this.editeur.equals(autreLivre.editeur)) {
-            System.out.println("Les livres représentent la même œuvre.");
-        } else {
-            System.out.println("Les livres ne représentent pas la même œuvre.");
-        }
+    public boolean memeOeuvre(Livre autreLivre) {
+        return this.titre.equals(autreLivre.titre) &&
+               this.auteur.equals(autreLivre.auteur) &&
+               this.editeur.equals(autreLivre.editeur);
     }
 
     // Méthode pour changer d'éditeur
-    public Livre changerEditeur(String nouveauEditeur) {
+    public Livre nouvelEditeur(String nouveauEditeur) {
         return new Livre(this.titre, this.auteur, nouveauEditeur, this.nombreExemplaires, this.genre);
     }
 }
