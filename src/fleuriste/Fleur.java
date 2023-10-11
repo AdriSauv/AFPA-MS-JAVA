@@ -1,12 +1,12 @@
 package fleuriste;
 
-public class Fleurs {
+public class Fleur {
 	
 	private String nom;
 	private double prix;
 	private int qtx;
 	
-	public Fleurs(String nom, double prix, int qtx) {
+	public Fleur(String nom, double prix, int qtx) {
 		this.nom = nom;
 		this.prix = prix;
 		this.qtx = qtx;
