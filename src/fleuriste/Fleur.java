@@ -36,7 +36,11 @@ public class Fleur {
 		this.qtx = qtx;
 	}
 
-	public void reduireStock(int qtxVendue) {
-		qtx -= qtxVendue;
-	}
+	public void reduireStock(int quantiteVendue) {
+        if (quantiteVendue <= qtx) {
+            qtx -= quantiteVendue;
+        } else {
+            System.out.println("Quantité insuffisante en stock pour " + nom);
+        }
+    }
 }
