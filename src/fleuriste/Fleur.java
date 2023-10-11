@@ -24,6 +24,18 @@ public class Fleur {
 		return qtx;
 	}
 	
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public void setPrix(double prix) {
+		this.prix = prix;
+	}
+
+	public void setQtx(int qtx) {
+		this.qtx = qtx;
+	}
+
 	public void reduireStock(int qtxVendue) {
 		qtx -= qtxVendue;
 	}
