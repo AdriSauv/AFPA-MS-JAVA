@@ -3,10 +3,10 @@ package fleuriste;
 public class Fleur {
 	
 	private String nom;
-	private double prix;
+	private float prix;
 	private int qtx;
 	
-	public Fleur(String nom, double prix, int qtx) {
+	public Fleur(String nom, float prix, int qtx) {
 		this.nom = nom;
 		this.prix = prix;
 		this.qtx = qtx;
@@ -16,7 +16,7 @@ public class Fleur {
 		return nom;
 	}
 
-	public double getPrix() {
+	public float getPrix() {
 		return prix;
 	}
 
@@ -28,7 +28,7 @@ public class Fleur {
 		this.nom = nom;
 	}
 
-	public void setPrix(double prix) {
+	public void setPrix(float prix) {
 		this.prix = prix;
 	}
 

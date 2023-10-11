@@ -6,16 +6,14 @@ public class Bouquet {
 	private List<Fleur> fleurs;
 	private List<Integer> quantites;
 	private double prixTotal;
-	private String nomClient;
-    private String prenomClient;
+	private Client client;
     
     
-    public Bouquet(String nomClient, String prenomClient) {
+	public Bouquet(Client client) {
+        this.client = client;
         fleurs = new ArrayList<>();
         quantites = new ArrayList<>();
         prixTotal = 0.0;
-        this.nomClient = nomClient;
-        this.prenomClient = prenomClient;
     }
     
     public void ajouterFleur(Fleur fleur, int quantite) {
@@ -24,8 +22,20 @@ public class Bouquet {
         prixTotal += fleur.getPrix() * quantite;
     }
     
+    
+    public String genererFacture() {
+        StringBuilder facture = new StringBuilder();
+        facture.append("Facture pour " + client.getNom() + " " + client.getPrenom() + " :\n");
+        for (int i = 0; i < fleurs.size(); i++) {
+            facture.append(quantites.get(i) + " " + fleurs.get(i).getNom() + " - " + (quantites.get(i) * fleurs.get(i).getPrix()) + " €\n");
+        }
+        facture.append("Prix total : " + prixTotal + " €\n");
+        return facture.toString();
+    }
+    
+    
     public void afficherFacture() {
-        System.out.println("Facture pour " + nomClient + " " + prenomClient + ":");
+        System.out.println("Facture pour " + client.getNom() + " " + client.getPrenom() + ":");
         for (int i = 0; i < fleurs.size(); i++) {
             System.out.println(quantites.get(i) + " " + fleurs.get(i).getNom() + " - " + (quantites.get(i) * fleurs.get(i).getPrix()) + " €");
         }
@@ -34,7 +44,7 @@ public class Bouquet {
     
     public List<Fleur> getFleurs() {
         return fleurs;
-        {
+    }
 
     public List<Integer> getQuantites() {
         return quantites;
@@ -44,11 +54,7 @@ public class Bouquet {
         return prixTotal;
     }
 
-    public String getNomClient() {
-        return nomClient;
-    }
-
-    public String getPrenomClient() {
-        return prenomClient;
+    public Client getClient() {
+        return client;
     }
 }
