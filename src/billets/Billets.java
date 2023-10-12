@@ -7,12 +7,15 @@ public class Billets {
 	private int nbPersonnes;
 	private float reduction;
 	
+	private static final double TRAIN_PRICE_PER_KILOMETER = 0.10;
+    private static final double AIRPLANE_PRICE_PER_KILOMETER = 0.20;
+    private static final int AIRPORT_TAX = 20;
 	
 	public Billets(String departCity, String arrivalCity, int kilometres, int nbPersonnes) {
 		this.departCity = departCity;
 		this.arrivalCity = arrivalCity;
-		this.kilometres = kilometres;
-		this.nbPersonnes = nbPersonnes;
+		this.kilometres = kilometres >= 0 ? kilometres : 0;
+		this.nbPersonnes = nbPersonnes > 0 ? nbPersonnes : 1;
 	}
 	
 	public Billets(String departCity, String arrivalCity, int kilometres, int nbPersonnes, float reduction) {
@@ -20,7 +23,7 @@ public class Billets {
 		this.arrivalCity = arrivalCity;
 		this.kilometres = kilometres;
 		this.nbPersonnes = nbPersonnes;
-		this.reduction = reduction;
+		this.reduction = (reduction >= 0 && reduction <= 100) ? reduction : 0;
 	}
 
 
@@ -45,13 +48,21 @@ public class Billets {
 	}
 
 	public void setReduction(float reduction) {
-		this.reduction = reduction;
+		this.reduction = (reduction >= 0 && reduction <= 100) ? reduction : 0;
 	}
 	
+	
+	private boolean isAirplaneTicket() {
+        
+    }
+	
 	public double prixBillet() {
-		int taxAeroport = 20;
-		double prixBillet = this.kilometres*0.20 + taxAeroport;
-		return prixBillet;
-	}
+        double pricePerKilometer = (kilometres > 0) ? 
+            ((kilometres * (isAirplaneTicket() ? AIRPLANE_PRICE_PER_KILOMETER : TRAIN_PRICE_PER_KILOMETER)) * nbPersonnes) :
+            0.0;
+        return pricePerKilometer + (isAirplaneTicket() ? AIRPORT_TAX : 0);
+    }
+	
+	
 	
 }
