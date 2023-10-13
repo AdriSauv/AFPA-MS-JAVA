@@ -2,7 +2,7 @@ package billets;
 
 public class BilletTrain extends Billets {
 	
-	public BilletTrain(String departCity, String arrivalCity, int kilometres, int nbPersonnes, float reduction, float prixKm) {
+	public BilletTrain(String departCity, String arrivalCity, int kilometres, int nbPersonnes, float reduction) {
 		super(departCity, arrivalCity, kilometres, nbPersonnes, reduction);
 	}
 	
