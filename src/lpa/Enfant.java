@@ -16,4 +16,10 @@ public class Enfant {
 	public void mangeChocolat(Chocolat c){
 		System.out.println("Miam!");
 	}
+
+	public String getPrenom() {
+		return prenom;
+	}
+	
+	
 }

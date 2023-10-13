@@ -17,7 +17,23 @@ public class Lpa {
 	}
 	
 	public void deposerChocolatEnfant(Enfant e) {
-	//A_ECRIRE
+		if (monJardin == null) {
+	        System.out.println("Le LPA est arrêté et ne peut pas déposer de chocolat.");
+	        return;
+	    }
+		
+		Iterator<Chocolat> it = lesChocolats.iterator();
+	    while (it.hasNext()) {
+	        Chocolat chocolat = it.next();
+	        if (chocolat.convient(e)) {
+	           
+	            e.mangeChocolat(chocolat);
+	            it.remove(); // Retire le chocolat du sac à dos
+	            System.out.println("Le LPA a déposé un chocolat à " + e.getPrenom() + ".");
+	            return; 
+	    }
+	    
+	    System.out.println("Le LPA n'a pas trouvé de chocolat convenant à " + e.getPrenom() + ".");
 	}
 	
 	
