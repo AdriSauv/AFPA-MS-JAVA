@@ -1,34 +1,13 @@
 package billets;
 
 public class BilletAvion extends Billets {
-	protected float prixKm = 0.20f;
-	protected int taxe = 20;
 	
-	public BilletAvion(String departCity, String arrivalCity, int kilometres, int nbPersonnes, float reduction, float prixKm, int taxe) {
+	public BilletAvion(String departCity, String arrivalCity, int kilometres, int nbPersonnes, float reduction) {
 		super(departCity, arrivalCity, kilometres, nbPersonnes, reduction);
-		this.prixKm = prixKm;
-		this.taxe = taxe;
 	}
 	
-	
-	public float prixBillet() {
-		float result = ((kilometres * prixKm) * nbPersonnes) + taxe;
-		return result;
-	}
-
-
 	@Override
-	public String toString() {
-		return "BilletAvion [Nombre de personne : " + getNbPersonnes() + 
-				", Ville de départ :  " + getDepartCity() + 
-				", Ville d'arrivée : " + getArrivalCity() + 
-				", kilomètres : " + getKilometres() + 
-				", prix total : " + prixBillet();
+	public double calculerPrix() {
+		return  0.20 * kilometres * nbPersonnes * (1 - reduction) + 20;
 	}
-
-
-	
-	
-	
-	
 }
