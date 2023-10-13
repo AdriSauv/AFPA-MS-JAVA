@@ -1,13 +1,15 @@
 package lpa;
 
+import java.util.*;
+
 public class Lpa {
 	
-	private A_COMPLETER lesChocolats;
-	private A_COMPLETER lesJardins;
+	private ArrayList<Chocolat> lesChocolats;
+	private ArrayList<Jardin> lesJardins;
 	private Jardin monJardin;
-	private Iterator iterJardins;
+	private Iterator<Jardin> iterJardins;
 	
-	public LPA(A_COMPLETER lesChocolats, A_COMPLETER lesJardins) {
+	public Lpa(ArrayList<Chocolat> lesChocolats, ArrayList<Jardin> lesJardins) {
 		this.lesJardins = lesJardins;
 		this.lesChocolats = lesChocolats;
 		iterJardins = lesJardins.iterator();

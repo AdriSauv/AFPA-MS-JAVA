@@ -5,8 +5,8 @@ public class Enfant {
 	private float poids;
 	
 	public Enfant(String prenom, float poids){
-	this.prenom = prenom;
-	this.poids = poids;
+		this.prenom = prenom;
+		this.poids = poids;
 	}
 	
 	public float getPoids(){
@@ -14,6 +14,6 @@ public class Enfant {
 	}
 	
 	public void mangeChocolat(Chocolat c){
-	System.out.println("Miam!");
+		System.out.println("Miam!");
 	}
 }
