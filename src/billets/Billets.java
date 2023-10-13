@@ -1,15 +1,13 @@
 package billets;
 
 public class Billets {
-	private String departCity;
-	private String arrivalCity;
-	private int kilometres;
-	private int nbPersonnes;
-	private float reduction;
+	protected String departCity;
+	protected String arrivalCity;
+	protected int kilometres;
+	protected int nbPersonnes;
+	protected float reduction;
 	
-	private static final double TRAIN_PRICE_PER_KILOMETER = 0.10;
-    private static final double AIRPLANE_PRICE_PER_KILOMETER = 0.20;
-    private static final int AIRPORT_TAX = 20;
+	
 	
 	public Billets(String departCity, String arrivalCity, int kilometres, int nbPersonnes) {
 		this.departCity = departCity;
@@ -52,16 +50,7 @@ public class Billets {
 	}
 	
 	
-	private boolean isAirplaneTicket() {
-        
-    }
 	
-	public double prixBillet() {
-        double pricePerKilometer = (kilometres > 0) ? 
-            ((kilometres * (isAirplaneTicket() ? AIRPLANE_PRICE_PER_KILOMETER : TRAIN_PRICE_PER_KILOMETER)) * nbPersonnes) :
-            0.0;
-        return pricePerKilometer + (isAirplaneTicket() ? AIRPORT_TAX : 0);
-    }
 	
 	
 	
