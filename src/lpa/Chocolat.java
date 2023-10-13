@@ -14,6 +14,14 @@ public class Chocolat {
 	}
 	
 	public boolean convient(Enfant e) {
-	// A ECRIRE
+		float poidsEnfant = e.getPoids();
+		float poidsChocolat = this.poids;
+		float poidsAttendu = 1000.0f / poidsEnfant;
+		
+		//marge de 1%
+		float marge = poidsAttendu*0.01f;
+		
+		return poidsChocolat >= (poidsAttendu - marge) && poidsChocolat <= (poidsAttendu + marge);
+		
 	}
 }
