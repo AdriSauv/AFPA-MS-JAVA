@@ -23,6 +23,14 @@ public class Lpa {
 	// A_ECRIRE
 	}
 	public boolean avancer() {
-	// A_ECRIRE
+		if(monJardin == null) {
+			return false;
+		}
+		if(iterJardins.hasNext()) {
+			return true;
+		} else {
+			monJardin = null;
+	        return false;
+		} 
 	}
 }
