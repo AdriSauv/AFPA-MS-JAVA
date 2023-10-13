@@ -19,8 +19,15 @@ public class BilletAvion extends Billets {
 
 	@Override
 	public String toString() {
-		return "BilletAvion [prixBillet()=" + prixBillet() + "]";
+		return "BilletAvion [Nombre de personne : " + getNbPersonnes() + 
+				", Ville de départ :  " + getDepartCity() + 
+				", Ville d'arrivée : " + getArrivalCity() + 
+				", kilomètres : " + getKilometres() + 
+				", prix total : " + prixBillet();
 	}
+
+
+	
 	
 	
 	
