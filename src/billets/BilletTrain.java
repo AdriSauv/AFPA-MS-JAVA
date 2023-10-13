@@ -3,7 +3,7 @@ package billets;
 public class BilletTrain extends Billets {
 	protected float prixKm = 0.10f;
 	
-	public BilletTrain(String departCity, String arrivalCity, int kilometres, int nbPersonnes, float reduction, float prixKm, int taxe) {
+	public BilletTrain(String departCity, String arrivalCity, int kilometres, int nbPersonnes, float reduction, float prixKm) {
 		super(departCity, arrivalCity, kilometres, nbPersonnes, reduction);
 		this.prixKm = prixKm;
 	}
