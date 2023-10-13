@@ -19,9 +19,13 @@ public class Lpa {
 	public void deposerChocolatEnfant(Enfant e) {
 	//A_ECRIRE
 	}
+	
+	
 	public void deposerChocolatJardin() {
 	// A_ECRIRE
 	}
+	
+	
 	public boolean avancer() {
 		if(monJardin == null) {
 			return false;
