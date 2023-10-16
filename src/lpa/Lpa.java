@@ -17,7 +17,7 @@ public class Lpa {
 	}
 	
 	public void deposerChocolatEnfant(Enfant e) {
-		if (monJardin == null) {
+		if (getMonJardin() == null) {
 	        System.out.println("Le LPA est arrêté et ne peut pas déposer de chocolat.");
 	        return;
 	    }
@@ -28,22 +28,38 @@ public class Lpa {
 	        if (chocolat.convient(e)) {
 	           
 	            e.mangeChocolat(chocolat);
-	            it.remove(); // Retire le chocolat du sac à dos
+	            it.remove();
 	            System.out.println("Le LPA a déposé un chocolat à " + e.getPrenom() + ".");
 	            return; 
 	    }
+	        
+	        System.out.println("Le LPA n'a pas trouvé de chocolat convenant à " + e.getPrenom() + ".");
+	        
+	    }
 	    
-	    System.out.println("Le LPA n'a pas trouvé de chocolat convenant à " + e.getPrenom() + ".");
 	}
+	    
 	
 	
 	public void deposerChocolatJardin() {
-	// A_ECRIRE
+		if (getMonJardin() == null) {
+	        System.out.println("Le LPA est arrêté et ne peut pas déposer de chocolats.");
+	        return;
+	    }
+		
+		System.out.println("Le LPA dépose des chocolats dans le jardin : " + getMonJardin().getAdresse());
+		
+		Iterator<Enfant> enfantIterator = getMonJardin().getLesEnfantsIterator();
+
+	    while (enfantIterator.hasNext()) {
+	        Enfant enfant = enfantIterator.next();
+	        deposerChocolatEnfant(enfant);
+	    }
 	}
 	
 	
 	public boolean avancer() {
-		if(monJardin == null) {
+		if(getMonJardin() == null) {
 			return false;
 		}
 		if(iterJardins.hasNext()) {
@@ -52,5 +68,9 @@ public class Lpa {
 			monJardin = null;
 	        return false;
 		} 
+	}
+
+	public Jardin getMonJardin() {
+		return monJardin;
 	}
 }
