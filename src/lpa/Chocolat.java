@@ -14,14 +14,26 @@ public class Chocolat {
 	}
 	
 	public boolean convient(Enfant e) {
-		float poidsEnfant = e.getPoids();
-		float poidsChocolat = this.poids;
-		float poidsAttendu = 1000.0f / poidsEnfant;
-		
-		//marge de 1%
-		float marge = poidsAttendu*0.01f;
-		
-		return poidsChocolat >= (poidsAttendu - marge) && poidsChocolat <= (poidsAttendu + marge);
-		
+		double poidsChocolatMin = e.getPoids() * 1000 * 0.99;
+	    double poidsChocolatMax = e.getPoids() * 1000 * 1.01;
+	    return (poids >= poidsChocolatMin) && (poids <= poidsChocolatMax);
 	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public float getPoids() {
+		return poids;
+	}
+
+	public void setPoids(float poids) {
+		this.poids = poids;
+	}
+	
+	
 }

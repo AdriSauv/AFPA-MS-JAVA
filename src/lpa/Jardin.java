@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Jardin {
 	private String adresse;
-	private ArrayList<Enfant> lesEnfants;
+	private List<Enfant> lesEnfants;
 	
 	
 	public Jardin(String adresse){

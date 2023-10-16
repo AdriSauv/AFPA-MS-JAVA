@@ -4,63 +4,65 @@ import java.util.*;
 public class PascalLeLapin {
 	public static void main(String[] args) {
         
-		Set<Lpa> mesLPA = new HashSet<>();
-		
-		Lpa lpa1 = createLPA();
-        Lpa lpa2 = createLPA();
-		
-		
-        mesLPA.add(lpa1);
-        mesLPA.add(lpa2);
+		Chocolat chocolat1 = new Chocolat(Chocolat.LAPIN, 2);
+        Chocolat chocolat2 = new Chocolat(Chocolat.OEUF, 1);
+        Chocolat chocolat3 = new Chocolat(Chocolat.POULE, 4);
+        
+        Enfant enfant1 = new Enfant("Emilia", 15);
+        Enfant enfant2 = new Enfant("Jules", 12);
+
+        Jardin jardin1 = new Jardin("Jardin 1");
+        Jardin jardin2 = new Jardin("Jardin 2");
         
         
-        for (Lpa lpa : mesLPA) {
-            runLPA(lpa);
-        }  
+        jardin1.ajouteEnfant(enfant1);
+        jardin2.ajouteEnfant(enfant2);
+        
+        List<Chocolat> chocolats = new ArrayList<>();
+        chocolats.add(chocolat1);
+        chocolats.add(chocolat2);
+        chocolats.add(chocolat3);
+        
+        List<Jardin> jardins = new ArrayList<>();
+        jardins.add(jardin1);
+        jardins.add(jardin2);
+        
+        Lpa lpa = new Lpa(chocolats, jardins);
+        
+		List<Lpa> lesLPA = new ArrayList<>();
+		lesLPA.add(lpa);
 		
-    }
-	
-	private static Lpa createLPA() {
-	    
-	    Chocolat chocolat1 = new Chocolat(Chocolat.LAPIN, 50);
-	    Chocolat chocolat2 = new Chocolat(Chocolat.OEUF, 30);
-	    Chocolat chocolat3 = new Chocolat(Chocolat.CLOCHE, 40);
-
-	   
-	    Enfant enfant1 = new Enfant("Alice", 25);
-	    Enfant enfant2 = new Enfant("Bob", 30);
-	    Enfant enfant3 = new Enfant("Charlie", 35);
-
-	   
-	    Jardin jardin1 = new Jardin("142 rue Emile");
-	    jardin1.ajouteEnfant(enfant1);
-	    jardin1.ajouteEnfant(enfant2);
-
-	    Jardin jardin2 = new Jardin("2 rue Quasimir");
-	    jardin2.ajouteEnfant(enfant3);
-
-	    ArrayList<Jardin> lesJardins = new ArrayList<>();
-	    lesJardins.add(jardin1);
-	    lesJardins.add(jardin2);
-
-	    ArrayList<Chocolat> lesChocolats = new ArrayList<>();
-	    lesChocolats.add(chocolat1);
-	    lesChocolats.add(chocolat2);
-	    lesChocolats.add(chocolat3);
-
-	    return new Lpa(lesChocolats, lesJardins);
-	}
-	
-	private static void runLPA(Lpa lpa) {
-        boolean finished = false;
-        while (!finished) {
-        	finished = true;
-            if (lpa.avancer()) {
-                lpa.deposerChocolatJardin();
-                finished = false;
-            }
+		for (Chocolat chocolat : chocolats) {
+            System.out.println("Nom: " + chocolat.getNom() + ", Poids: " + chocolat.getPoids());
         }
-    }
-	
+		
+		for (Jardin jardin : jardins) {
+			System.out.println("\nAdresse: " + jardin.getAdresse());
+            System.out.println("Enfants dans le jardin:");
+            Iterator<Enfant> childrenIterator = jardin.getLesEnfantsIterator();
+            while (childrenIterator.hasNext()) {
+                Enfant enfant = childrenIterator.next();
+                System.out.println("   Prénom: " + enfant.getPrenom() + ", Poids: " + enfant.getPoids());
+            }
+		}
+		
+		boolean LpaDone = false;
+		
+		while(!LpaDone) {
+			LpaDone = true;
+			
+			for (Lpa lpaIter : lesLPA) {
+				if(lpaIter.avancer()) {
+					LpaDone = false;
+					lpaIter.deposerChocolatJardin();
+				}
+			}
+		}
+       
+		for (Chocolat chocolat : chocolats) {
+            System.out.println("Nom: " + chocolat.getNom() + ", Poids: " + chocolat.getPoids());
+        }
+        
+	}
 	
 }
