@@ -8,7 +8,7 @@ public class Enfant {
 		this.prenom = prenom;
 		this.poids = poids;
 	}
-	
+
 	public float getPoids(){
 		return poids;
 	}

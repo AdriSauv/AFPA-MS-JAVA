@@ -9,14 +9,18 @@ public class PascalLeLapin {
         Chocolat chocolat3 = new Chocolat(Chocolat.POULE, 4);
         
         Enfant enfant1 = new Enfant("Emilia", 15);
-        Enfant enfant2 = new Enfant("Jules", 12);
+        Enfant enfant2 = new Enfant("Sofyia", 14);
+        Enfant enfant3 = new Enfant("Jules", 11);
+        Enfant enfant4 = new Enfant("Jack", 19);
 
         Jardin jardin1 = new Jardin("Jardin 1");
         Jardin jardin2 = new Jardin("Jardin 2");
         
         
         jardin1.ajouteEnfant(enfant1);
-        jardin2.ajouteEnfant(enfant2);
+        jardin1.ajouteEnfant(enfant2);
+        jardin2.ajouteEnfant(enfant3);
+        jardin2.ajouteEnfant(enfant4);
         
         List<Chocolat> chocolats = new ArrayList<>();
         chocolats.add(chocolat1);
@@ -32,9 +36,6 @@ public class PascalLeLapin {
 		List<Lpa> lesLPA = new ArrayList<>();
 		lesLPA.add(lpa);
 		
-		for (Chocolat chocolat : chocolats) {
-            System.out.println("Nom: " + chocolat.getNom() + ", Poids: " + chocolat.getPoids());
-        }
 		
 		for (Jardin jardin : jardins) {
 			System.out.println("\nAdresse: " + jardin.getAdresse());
@@ -46,23 +47,10 @@ public class PascalLeLapin {
             }
 		}
 		
-		boolean LpaDone = false;
-		
-		while(!LpaDone) {
-			LpaDone = true;
-			
-			for (Lpa lpaIter : lesLPA) {
-				if(lpaIter.avancer()) {
-					LpaDone = false;
-					lpaIter.deposerChocolatJardin();
-				}
-			}
-		}
-       
-		for (Chocolat chocolat : chocolats) {
-            System.out.println("Nom: " + chocolat.getNom() + ", Poids: " + chocolat.getPoids());
-        }
-        
+		lpa.getLesJardins();
+		lpa.avancer();
+		lpa.deposerChocolatJardin();
+		lpa.deposerChocolatEnfant(enfant1);   
 	}
 	
 }

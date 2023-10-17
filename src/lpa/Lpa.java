@@ -11,8 +11,8 @@ public class Lpa {
 	private boolean arrete;
 	
 	public Lpa(List<Chocolat> lesChocolats, List<Jardin> lesJardins) {
-		this.lesJardins = lesJardins;
 		this.lesChocolats = lesChocolats;
+		this.lesJardins = lesJardins;
 		iterJardins = lesJardins.iterator();
 		arrete = false;
 		avancer();
@@ -41,6 +41,7 @@ public class Lpa {
 		while (it.hasNext()) {
 	        Enfant enfant = it.next();
 	        deposerChocolatEnfant(enfant);
+	        System.out.println("Un chocolat a été déposé à " + enfant);
 	    }
 	}
 	
@@ -51,6 +52,11 @@ public class Lpa {
 		monJardin = iterJardins.next();
 		
 		return true;
+	}
+
+
+	public List<Jardin> getLesJardins() {
+		return lesJardins;
 	}
 	
 }
