@@ -24,4 +24,6 @@ public class CD {
 	public boolean doitEtreRendu() {
 		return Date.currentDate().compareTo(retour) <= 0;
 	}
+	
+	
 }
