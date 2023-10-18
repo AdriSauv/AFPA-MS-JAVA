@@ -8,5 +8,8 @@ public class DemoSac {
 		sac1.ajouteUnMot("Soleil");
 		
 		System.out.println(sac1.toString());
+		
+		sac1.supprimeUnMot("Soleil");
+		System.out.println(sac1.toString());
 	}
 }

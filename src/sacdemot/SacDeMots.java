@@ -19,5 +19,14 @@ public class SacDeMots {
 		return "SacDeMots [motOccurrences=" + motOccurrences + "]";
 	}
 	
-	
+	public void supprimeUnMot(String mot) {
+        Integer occurrences = motOccurrences.get(mot);
+        if (occurrences != null) {
+            if (occurrences > 1) {
+                motOccurrences.put(mot, occurrences - 1);
+            } else {
+                motOccurrences.remove(mot);
+            }
+        }
+    }
 }
