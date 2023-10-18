@@ -1,15 +1,17 @@
 package mediatheque;
 
-import java.util.Date;
+import java.util.*;
+import java.time.LocalDate;
+
 
 public class CD {
 	private String code, titre, style, artiste;
-	private Date retour;
+	private LocalDate retour;
 	private Membre emprunteur;
 	
 	
 	
-	public CD(String code, String titre, String style, String artiste, Date retour, Membre emprunteur) {
+	public CD(String code, String titre, String style, String artiste, LocalDate retour, Membre emprunteur) {
 		this.code = code;
 		this.titre = titre;
 		this.style = style;
@@ -44,7 +46,7 @@ public class CD {
 
 
 
-	public Date getRetour() {
+	public LocalDate getRetour() {
 		return retour;
 	}
 
@@ -63,7 +65,8 @@ public class CD {
 	
 	public void emprunter(Membre m) {
 		emprunteur = m;
-		retour = Date.currentDate().addDays(6);
+		LocalDate currentDate = LocalDate.now();
+		retour = currentDate.plusDays(6);
 	}
 	
 	
@@ -74,7 +77,8 @@ public class CD {
 	
 	
 	public boolean doitEtreRendu() {
-		return Date.currentDate().compareTo(retour) <= 0;
+	    LocalDate currentDate = LocalDate.now();
+	    return currentDate.isBefore(retour) || currentDate.isEqual(retour);
 	}
 	
 	
