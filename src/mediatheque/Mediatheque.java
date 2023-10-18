@@ -19,7 +19,19 @@ public class Mediatheque {
 	}
 
 	
-	public void emprunter (Membre m, CD cd) {};
+	public void emprunter (Membre m, CD cd) {
+		if(peutEmprunter(m)) {
+			if(!cd.estEmprunte()) {
+				cd.emprunter(m);
+			} else {
+				System.out.println("CD déjà emprunté");
+			}
+		} else {
+			System.out.println("Le membre ne peut pas emprunter de cd pour le moment.");
+		}
+	}
+	
+	
 	public Set<CD> chercherParArtiste (String artiste){};
 	public Set<CD> chercherParMotCle (String... motsClesDansLeTitre){};
 }
