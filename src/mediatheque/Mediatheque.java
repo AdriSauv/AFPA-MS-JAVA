@@ -1,6 +1,6 @@
 package mediatheque;
 
-import java.util.Set;
+import java.util.*;
 
 public class Mediatheque {
 	private Set<CD> cds;
@@ -32,6 +32,16 @@ public class Mediatheque {
 	}
 	
 	
-	public Set<CD> chercherParArtiste (String artiste){};
+	public Set<CD> chercherParArtiste(String artiste){
+		Set<CD> resultat = new HashSet<>();
+		
+		for (CD cd : cds) {
+			if(cd.getArtiste().equalsIgnoreCase(artiste) ) {
+				resultat.add(cd);
+			}
+		}
+		return resultat;
+		
+	}
 	public Set<CD> chercherParMotCle (String... motsClesDansLeTitre){};
 }
