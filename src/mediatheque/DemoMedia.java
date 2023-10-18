@@ -33,8 +33,8 @@ public class DemoMedia {
         System.out.println("CDs de l Artiste 1: " + artiste1CDs);
         
         Set<CD> keywordCDs = mediatheque.chercherParMotCle("Album 2", "Album 3");
-        System.out.println("CD avec 'Album 2' ou 'Album 3' dans le titre: " + keywordCDs);
-        
+        System.out.println("CD avec 'Album 2' ou 'Album 3' dans le titre: " + keywordCDs.toString());
+              
         
 	}
 }

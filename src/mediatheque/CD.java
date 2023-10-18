@@ -80,6 +80,14 @@ public class CD {
 	    LocalDate currentDate = LocalDate.now();
 	    return currentDate.isBefore(retour) || currentDate.isEqual(retour);
 	}
+
+
+
+	@Override
+	public String toString() {
+		return "CD [code=" + code + ", titre=" + titre + ", style=" + style + ", artiste=" + artiste + ", retour="
+				+ retour + ", emprunteur=" + emprunteur + "]";
+	}
 	
 	
 	
